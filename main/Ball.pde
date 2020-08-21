@@ -3,12 +3,13 @@ class Ball {
   PVector velocity = new PVector();
   PVector acceleration = new PVector(0, 0.2);
   float decelleration_rate = 0.993;
+  boolean collision = false;
   
   Ball(float xIn, float yIn) {
     location.x = xIn;
     location.y = yIn;
     
-    velocity.x = random(-3, 3);
+    velocity.x = random(-5, 5);
     velocity.y = random(-3, 3);
   }
   
