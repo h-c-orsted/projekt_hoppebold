@@ -9,7 +9,7 @@ void setup() {
 
   balls = new Ball[countBalls];
   for (int i=0; i<countBalls; i++) {
-    balls[i] = new Ball(random(10, 980), random(10, 400), ballSize);
+    balls[i] = new Ball(random(ballSize, width - ballSize), random(ballSize, height-ballSize), ballSize);
   }
 }
 
@@ -61,7 +61,7 @@ void keyReleased() {
   {
     {
       for (int i=0; i<countBalls; i++) {
-        balls[i] = new Ball(random(10, 980), random(10, 400), ballSize);
+    balls[i] = new Ball(random(ballSize, width - ballSize), random(ballSize, height-ballSize), ballSize);
       }
     }
   }
