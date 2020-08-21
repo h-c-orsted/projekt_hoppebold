@@ -56,13 +56,9 @@ for (int i=0; i<countBalls; i++) {
 }
 }
 void keyReleased() {
-
-  if (key == 'r' || key == 'R');
-  {
-    {
-      for (int i=0; i<countBalls; i++) {
-    balls[i] = new Ball(random(ballSize, width - ballSize), random(ballSize, height-ballSize), ballSize);
-      }
+  if (key == 'r' || key == 'R') {
+    for (int i=0; i<countBalls; i++) {
+      balls[i] = new Ball(random(ballSize, width - ballSize), random(ballSize, height-ballSize), ballSize);
     }
   }
 }
