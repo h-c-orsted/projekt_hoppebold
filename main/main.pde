@@ -48,8 +48,9 @@ for (int i=0; i<countBalls; i++) {
       if (!balls[i].collision) {
         balls[i].velocity.x *= -1;
         balls[i].collision = true;
+        balls[i].collisionIndex = j;
       }
-    } else {
+    } else if (j == balls[i].collisionIndex){
       balls[i].collision = false;
     }
   }
