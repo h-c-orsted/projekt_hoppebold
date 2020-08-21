@@ -1,5 +1,6 @@
 Ball[] balls;
 int countBalls = 10;
+float ballSize = 30;
 
 
 void setup() {
@@ -8,7 +9,7 @@ void setup() {
   
   balls = new Ball[countBalls];
   for (int i=0; i<countBalls; i++) {
-    balls[i] = new Ball(random(10, 980), random(10, 400));
+    balls[i] = new Ball(random(10, 980), random(10, 400), ballSize);
   }
 }
 
@@ -27,7 +28,13 @@ void draw() {
   circle(820,240, 45);
   circle(835,275, 45);
   
-  
+  if(keyPressed){
+    if(key == 'r' || key == 'R');{
+      for (int i=0; i<countBalls; i++) {
+    balls[i] = new Ball(random(10, 980), random(10, 400), ballSize);
+  }
+    }
+  } 
   
   
   for (int i=0; i<countBalls; i++) {  
@@ -38,10 +45,10 @@ void draw() {
   
   for (int i=0; i<countBalls; i++) {
     for (int j=0; j<countBalls; j++) {
-      if (balls[i].location.x > balls[j].location.x-20 &&
-          balls[i].location.x < balls[j].location.x+20 &&
-          balls[i].location.y > balls[j].location.y-20 &&
-          balls[i].location.y < balls[j].location.y+20 &&
+      if (balls[i].location.x > balls[j].location.x-ballSize &&
+          balls[i].location.x < balls[j].location.x+ballSize &&
+          balls[i].location.y > balls[j].location.y-ballSize &&
+          balls[i].location.y < balls[j].location.y+ballSize &&
           i != j) {
            
         if (!balls[i].collision) {
@@ -53,4 +60,10 @@ void draw() {
       }
     } 
   }
+}
+
+
+void restart(){
+   
+  
 }

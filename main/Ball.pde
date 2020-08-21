@@ -4,10 +4,13 @@ class Ball {
   PVector acceleration = new PVector(0, 0.2);
   float decelleration_rate = 0.993;
   boolean collision = false;
+  float ballSize = 20;
   
-  Ball(float xIn, float yIn) {
+  Ball(float xIn, float yIn, float ball_size) {
     location.x = xIn;
     location.y = yIn;
+    
+    ballSize = ball_size;
     
     velocity.x = random(-5, 5);
     velocity.y = random(-3, 3);
@@ -16,7 +19,8 @@ class Ball {
   
   void drawBall() {
     fill(30, 80, 230);
-    circle(location.x, location.y, 20);
+    stroke(6);
+    circle(location.x, location.y, ballSize);
   }
   
   
@@ -25,10 +29,10 @@ class Ball {
     velocity.add(acceleration);
     velocity.y *= decelleration_rate;
     
-    if (location.x >= width-10 || location.x <= 10) {
+    if (location.x >= width-ballSize/2 || location.x <= ballSize/2) {
       velocity.x *= -1;
     }
-    if (location.y >= height-10 || location.y <= 10) {
+    if (location.y >= height-ballSize/2 || location.y <= ballSize/2) {
       velocity.y *= -1;
     }
   }
