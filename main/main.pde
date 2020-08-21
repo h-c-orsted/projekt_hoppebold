@@ -31,30 +31,30 @@ void draw() {
 
 
 
-for (int i=0; i<countBalls; i++) {  
-  balls[i].drawBall();
-  balls[i].move();
-}
+  for (int i=0; i<countBalls; i++) {  
+    balls[i].drawBall();
+    balls[i].move();
+  }
 
 
-for (int i=0; i<countBalls; i++) {
-  for (int j=0; j<countBalls; j++) {
-    if (balls[i].location.x > balls[j].location.x-ballSize &&
-      balls[i].location.x < balls[j].location.x+ballSize &&
-      balls[i].location.y > balls[j].location.y-ballSize &&
-      balls[i].location.y < balls[j].location.y+ballSize &&
-      i != j) {
+  for (int i=0; i<countBalls; i++) {
+    for (int j=0; j<countBalls; j++) {
+      if (balls[i].location.x > balls[j].location.x-ballSize &&
+        balls[i].location.x < balls[j].location.x+ballSize &&
+        balls[i].location.y > balls[j].location.y-ballSize &&
+        balls[i].location.y < balls[j].location.y+ballSize &&
+        i != j) {
 
-      if (!balls[i].collision) {
-        balls[i].velocity.x *= -1;
-        balls[i].collision = true;
-        balls[i].collisionIndex = j;
+        if (!balls[i].collision) {
+          balls[i].velocity.x *= -1;
+          balls[i].collision = true;
+          balls[i].collisionIndex = j;
+        }
+      } else if (j == balls[i].collisionIndex) {
+        balls[i].collision = false;
       }
-    } else if (j == balls[i].collisionIndex){
-      balls[i].collision = false;
     }
   }
-}
 }
 void keyReleased() {
   if (key == 'r' || key == 'R') {
