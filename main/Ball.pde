@@ -4,6 +4,7 @@ class Ball {
   PVector acceleration = new PVector(0, 0.2);
   float decelleration_rate = 0.993;
   boolean collision = false;
+  int collisionIndex;
   float ballSize = 20;
   
   Ball(float xIn, float yIn, float ball_size) {
