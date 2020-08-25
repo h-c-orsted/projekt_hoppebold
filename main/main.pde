@@ -1,6 +1,8 @@
 Ball[] balls;
-int countBalls = 10;
+int countBalls = 2;
 float ballSize = 30;
+
+GroundArc ground;
 
 
 void setup() {
@@ -11,6 +13,8 @@ void setup() {
   for (int i=0; i<countBalls; i++) {
     balls[i] = new Ball(random(ballSize, width - ballSize), random(ballSize, height-ballSize), ballSize);
   }
+  
+  ground =  new GroundArc(width/2, height, 250); 
 }
 
 void draw() {
@@ -28,7 +32,8 @@ void draw() {
   circle(820, 240, 45);
   circle(835, 275, 45);
 
-
+  
+  ground.drawArc();
 
 
   for (int i=0; i<countBalls; i++) {  
